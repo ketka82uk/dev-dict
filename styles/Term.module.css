@@ -1,0 +1,48 @@
+.findOutMoreButton {
+  color: white !important;
+  border: 1px solid white !important;
+  border-radius: 5px !important;
+  padding: 5px;
+  height: 30px;
+  margin: 15px 0 15px 0 !important;
+}
+
+.containerFooter {
+ color: white !important;
+}
+
+.termContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  border: 1px solid whitesmoke;
+  width: 90%;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+}
+
+.cardLeft {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+h4.h4List {
+  margin: 0;
+}
+
+p.pList {
+  margin: 0;
+}

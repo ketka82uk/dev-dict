@@ -12,30 +12,32 @@ const Layout = ({ children }) => {
         <title>{'{'}dev_dict{'}'}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Container>
-          <Grid container spacing={0}>
-            <Grid item xs={12} md={6}>
-              <div className={styles.mainLeftSide}>
-                <div className={styles.titleBox}>
-                  <h1>{'{'}dev_dict{'}'}</h1>
-                  <h3>Breaking down developer acronyms one letter at a time...</h3>
-                  <SearchBar />
+      <body>
+        <main>
+          <Container>
+            <Grid container spacing={0}>
+              <Grid item xs={12} md={6}>
+                <div className={styles.mainLeftSide}>
+                  <div className={styles.titleBox}>
+                    <h1>{'{'}dev_dict{'}'}</h1>
+                    <h3>Breaking down developer acronyms one letter at a time...</h3>
+                    <SearchBar />
+                  </div>
                 </div>
-              </div>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <div className={styles.mainRightSide}>
+                  {children}
+                </div>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <div className={styles.mainRightSide}>
-                {children}
-              </div>
-            </Grid>
-          </Grid>
-        </Container>
-      </main>
-      <footer>
-        <small>Cathy J Thomas | 2021</small>
-        <small>Powered by Next.js, FaunaDB and Vercel</small>
-      </footer>
+          </Container>
+        </main>
+        <footer>
+          <small>Cathy J Thomas | 2021</small>
+          <small>Powered by Next.js, FaunaDB and Vercel</small>
+        </footer>
+      </body>
     </>
   )
 }

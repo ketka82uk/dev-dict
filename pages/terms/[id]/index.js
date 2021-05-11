@@ -5,9 +5,11 @@ import Layout from '../../components/layout'
 import Link from 'next/link'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
+import Tooltip from '@material-ui/core/Tooltip'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
 import Container from '@material-ui/core/Container'
+import styles from '../../../styles/Term.module.css'
 
 
 const fetcher = (url) => fetch(url).then((r) => r.json())
@@ -37,30 +39,34 @@ const Term = () => {
 
   return (
     <Layout>
-      {data ? (
-        <Container>
-          <h2>{data.term}</h2>
-          <h4 className="num">{data.meaning}</h4>
-          <p className="num">{data.description}</p>
-          <p className="num">{data.url}</p>
-          <div className="paper-footer">
-            <Link href="/terms/[id]/update" as={`/terms/${id}/update`}>
-              <a className="editButton">Edit</a>
-            </Link>
-            <IconButton aria-label="edit" onClick={handleDelete}>
-              <EditIcon />
-            </IconButton>
-            <IconButton aria-label="delete" onClick={handleDelete}>
-              <DeleteIcon />
-            </IconButton>
-          </div>
-        </Container>
-      ) : (
-        <div>loading...</div>
-      )}
-      <Link href="/" as={'/'}>
-        <Button variant="outlined">Go back</Button>
-      </Link>
+      <div className={styles.termContainer}>
+        {data ? (
+          <Container>
+            <h2>{data.term}</h2>
+            <h4>{data.meaning}</h4>
+            <p>{data.description}</p>
+            <a href={data.url} aria-label="link to further info" target="_blank" rel="noreferrer">
+              <Button className={styles.findOutMoreButton} variant="outlined">Find out more</Button>
+            </a>
+            <div className={styles.containerFooter}>
+              <Link href="/terms/[id]/update" as={`/terms/${id}/update`}>
+                <Tooltip title="Edit">
+                  <IconButton aria-label="edit">
+                    <EditIcon style={{ color: 'whitesmoke' }} />
+                  </IconButton>
+                </Tooltip>
+              </Link>
+              <Tooltip title="Delete">
+                <IconButton aria-label="delete" onClick={handleDelete}>
+                  <DeleteIcon style={{ color: 'whitesmoke' }} />
+                </IconButton>
+              </Tooltip>
+            </div>
+          </Container>
+        ) : (
+          <div>loading...</div>
+        )}
+      </div>
     </Layout>
   )
 }

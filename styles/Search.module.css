@@ -12,3 +12,30 @@
   width: 100%;
   margin-left: 15px;
 }
+
+.searchResult {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.searchResultBox {
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+}
+
+p.searchResultText {
+  margin-top: 0px;
+}
+
+.searchButton {
+  color: white !important;
+  border: 1px solid white !important;
+  border-radius: 5px !important;
+  padding: 5px;
+  height: 30px;
+}

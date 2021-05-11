@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Link from 'next/link'
 import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import InputBase from '@material-ui/core/InputBase'
 import Divider from '@material-ui/core/Divider'
+import Tooltip from '@material-ui/core/Tooltip'
 import SearchIcon from '@material-ui/icons/Search'
 import AppsIcon from '@material-ui/icons/Apps'
 import styles from '../../styles/Search.module.css'
+import CreateTerm from './createTerm'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -29,6 +32,9 @@ export default function SearchBar() {
     })
   }
 
+  console.log(filteredData())
+  console.log(searchQuery)
+
   return (
     <div className={styles.searchBar}>
 
@@ -43,23 +49,32 @@ export default function SearchBar() {
           onChange={(event) => setSearchQuery(event.target.value)}
         />
         <Divider className="x" orientation="vertical" />
-          X
+        <CreateTerm />
         <Divider className="x" orientation="vertical" />
+
         <Link href="/terms/all_terms">
-          <IconButton type="submit" className="x" aria-label="search">
-            <AppsIcon />
-          </IconButton>
+          <Tooltip title="All acronyms">
+            <IconButton type="submit" className="x" aria-label="see all acronyms">
+              <AppsIcon />
+            </IconButton>
+          </Tooltip>
         </Link>
+
       </Paper>
 
-      <div className="x">
-        {filteredData().map((term) => {
-          return <div key={term.ref['@ref'].id}>
-            <p>{term.data.term} - {term.data.meaning}</p>
+      <div className={styles.searchResultBox}>
+        {searchQuery && filteredData() && filteredData().map((term) => {
+          return <div key={term.ref['@ref'].id} className={styles.searchResult}>
+            <p className={styles.searchResultText}>{term.data.term} - {term.data.meaning}</p>
+            <Link href="/terms/[id]" as={`/terms/${term.ref['@ref'].id}`}>
+              <Button variant="outlined" className={styles.searchButton}>See more</Button>
+            </Link>
           </div>
         })}
+        {searchQuery && filteredData().length === 0 && <div className={styles.searchResult}>
+          <p className={styles.searchResultText}>No acronym found.</p>
+        </div>}
       </div>
-
     </div>
   )
 }

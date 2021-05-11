@@ -8,12 +8,15 @@ body {
   color: whitesmoke;
   font-family: 'Roboto', sans-serif;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 main {
-  height: 90vh;
   display: flex;
   align-items: center;
+  height: 90%;
 }
 
 footer {
@@ -29,6 +32,13 @@ h1 {
   margin-bottom: 0px;
 }
 
+h2 {
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 0px;
+  color: rgba(224,15,121,1)
+}
+
 h3 {
   font-size: 30px;
   background: -webkit-linear-gradient(180deg, rgba(224,15,121,1) 0%, rgba(244,7,127,1) 20%, rgba(126,202,251,1) 100%);
@@ -39,4 +49,11 @@ h3 {
   font-weight: 600;
   margin-left: 15px;
 }
+
+h4 {
+  font-size: 20px;
+  margin-top: 0px;
+  color: rgba(126,202,251,1);
+}
+
 
