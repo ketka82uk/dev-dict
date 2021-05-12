@@ -9,6 +9,7 @@
 
 .containerFooter {
  color: white !important;
+ display: flex;
 }
 
 .termContainer {
@@ -46,3 +47,16 @@ h4.h4List {
 p.pList {
   margin: 0;
 }
+
+#updateTerm {
+  color: white !important;
+  border: 1px solid white;
+  width: 400px;
+  background: none;
+  padding: 20px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
+}
+
