@@ -134,7 +134,7 @@ const CreateTerm = () => {
               shrink: true
             }}
             style={{ marginTop: 10 }}
-            placeholder="Write a bit about it here..."
+            placeholder="Probably the most common developer acronym, usually used in conjunction with FFS"
             fullWidth
             multiline
             rows={5}
