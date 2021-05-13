@@ -46,7 +46,7 @@ const EditForm = ({ defaultValues, id }) => {
               <input
                 id={styles.updateTerm}
                 label="Acronym"
-                defaultValue={defaultValues.term}
+                // defaultValue={defaultValues.term}
                 type="text"
                 {...register('term', { required: true })}
                 name="term"
@@ -62,7 +62,7 @@ const EditForm = ({ defaultValues, id }) => {
               <input
                 id={styles.updateTerm}
                 label="Meaning"
-                defaultValue={defaultValues.meaning}
+                // defaultValue={defaultValues.meaning}
                 type="text"
                 {...register('meaning', { required: true })}
                 name="meaning"
@@ -79,7 +79,7 @@ const EditForm = ({ defaultValues, id }) => {
                 id={styles.updateTerm}
                 label="Description"
                 rows="5"
-                defaultValue={defaultValues.description}
+                // defaultValue={defaultValues.description}
                 type="text"
                 {...register('description', { required: false })}
                 name="description"
@@ -95,7 +95,7 @@ const EditForm = ({ defaultValues, id }) => {
               <input
                 id={styles.updateTerm}
                 label="Url"
-                defaultValue={defaultValues.url}
+                // defaultValue={defaultValues.url}
                 type="text"
                 {...register('url', { required: false })}
                 name="url"
